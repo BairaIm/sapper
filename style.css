@@ -1,0 +1,48 @@
+html {
+    font-size: 62.5%;
+}
+
+div, img, button {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    display: none;
+}
+.container {
+    margin: 0 auto;
+    background-color: lightgrey;
+    border: 1rem ridge lightgrey;
+    max-width: 64rem;
+    overflow: hidden;
+}
+
+.header {
+    padding: 0.2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1rem ridge lightgrey;
+}
+
+.counter__img, .timer__img {
+    float: left;
+    width: 2rem;
+}
+
+.smile {
+    width: 4rem;
+}
+
+.smile__img {
+    width: 100%;
+}
+
+.field {
+    display: grid;
+}
+
+.count_mines {
+    width: 100%;
+    height: 100%;
+}
