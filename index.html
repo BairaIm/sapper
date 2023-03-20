@@ -1,24 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="img/mine.png">
-    <title>Minesweeper</title>
+    <title>Сапер</title>
 </head>
 <body>
-    <h1>Minesweeper</h1>
+    <h1>Сапер</h1>
     <div class="container">
-        <div class="header">
-            <div class="counter"> </div>
-            <a href="https://bairaim.github.io/sapper/" class="smile">
-                <img class="smile__img" src="img/smile.png" alt="smile">
-            </a>
-            <div class="timer"></div>
+        <div class="game">
+            <div class="header">
+                <div class="counter">
+                    <div class="digit digit_0 digit-size-2" id="counter-mines-100"></div>
+                    <div class="digit digit_0 digit-size-2" id="counter-mines-10"></div>
+                    <div class="digit digit_0 digit-size-2" id="counter-mines-1"></div>
+                </div>
+                <button class="smile size-4 cell"></button>
+                <div class="timer">
+                    <div class="digit digit_0 digit-size-2" id="timer-100"></div>
+                    <div class="digit digit_0 digit-size-2" id="timer-10"></div>
+                    <div class="digit digit_0 digit-size-2" id="timer-1"></div>
+                </div>
+            </div>
+            <div class="type-click hidden">
+                <p class="text-2">Выберите действие при нажатии:</p>
+                <div class="type">
+                    <div>
+                        <input type="radio" id="open-cell" name="type-click" value="cell" checked>
+                        <label class="text-2" for="open-cell">Открыть ячейку</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="flag" name="type-click" value="flag">
+                        <label class="text-2" for="flag">Установить флаг</label>
+                    </div>
+                    <button class="flag toggle-type size-3 cell"></button>
+                </div>
+            </div>
+            <div class="field"></div>
         </div>
-        <div class="field"></div>
+
+        <div class="conditions">
+            <fieldset class="size">
+                <legend>Выберите размер ячеек</legend>
+                    <div>
+                        <input type="radio" id="small" name="size_cell" value="2" checked>
+                        <label for="small">маленький</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="middle" name="size_cell" value="3">
+                        <label for="middle">средний</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="big" name="size_cell" value="4">
+                        <label for="big">большой</label>
+                    </div>
+            </fieldset>
+            <fieldset class="level">
+                <legend>Выберите уровень</legend>
+                    <div>
+                        <input type="radio" id="newice" name="level" value="1">
+                        <label for="newice">новичок</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="midd-skill" name="level" value="2">
+                        <label for="midd-skill">любитель</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="prof" name="level" value="3" checked>
+                        <label for="prof">профессионал</label>
+                    </div>
+            </fieldset>
+        </div>
     </div>
     
 
