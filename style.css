@@ -5,15 +5,17 @@ html {
 div, img, button {
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 h1 {
     display: none;
 }
+
 .container {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    max-width: 90rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -24,12 +26,11 @@ h1 {
 .game {
     background-color: lightgrey;
     border: 1rem ridge lightgrey;
-    max-width: 64rem;
-    overflow: hidden;
-    min-width: 22rem;
+    min-width: 16rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .header {
@@ -40,208 +41,228 @@ h1 {
     border-bottom: 1rem ridge lightgrey;
 }
 
-.digit-size-2 {
-    width: 2rem;
-    height: 4rem;
-}
-
-.digit-size-3 {
-    width: 3rem;
-    height: 6rem;
-}
-
-.digit-size-4 {
-    width: 4rem;
-    height: 8rem;
-}
-
 .digit {
+    width: 2.3rem;
+    height: 3.7rem;
     float: left;
+    background-image: url("img/digits_new.png");
+    background-repeat: no-repeat;
 }
 
 .digit_0 {
-    background: no-repeat center / contain url("img/null.png");
+    background-position: 0 0;
 }
 
 .digit_1 {
-    background: no-repeat center / contain url("img/one.png");
+    background-position: -2.4rem 0;
 }
 
 .digit_2 {
-    background: no-repeat center / contain url("img/two.png");
+    background-position: -4.8rem 0;
 }
 
 .digit_3 {
-    background: no-repeat center / contain url("img/three.png");
+    background-position: -7.2rem 0;
 }
 
 .digit_4 {
-    background: no-repeat center / contain url("img/four.png");
+    background-position: -9.6rem 0;
 }
 
 .digit_5 {
-    background: no-repeat center / contain url("img/five.png");
+    background-position: -12.0rem 0;
 }
 
 .digit_6 {
-    background: no-repeat center / contain url("img/six.png");
+    background-position: -14.4rem 0;
 }
 
 .digit_7 {
-    background: no-repeat center / contain url("img/seven.png");
+    background-position: -16.8rem 0;
 }
 
 .digit_8 {
-    background: no-repeat center / contain url("img/eight.png");
+    background-position: -19.2rem 0;
 }
 
 .digit_9 {
-    background: no-repeat center / contain url("img/nine.png");
+    background-position: -21.6rem 0;
+}
+
+.digit_minus {
+    background-position: -24.0rem 0;
+}
+
+.smile_base {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: url("img/smiles_new.png");
+    background-repeat: no-repeat;
 }
 
 .smile {
-    background: no-repeat center / contain url("img/smile.png");
+    background-position: 0 0;
+}
+
+.smile:hover {
+    background-position: -3.6rem 0;
 }
 
 .smile_win {
-    background: no-repeat center / contain url("img/win_smile.png");
+    background-position: -7.2rem 0;
 }
 
 .smile_lose {
-    background: no-repeat center / contain url("img/lose_smile.png");
+    background-position: -10.8rem 0;
 }
 
 .field {
     display: grid;
 }
 
-.size-2 {
-    width: 2rem;
-    height: 2rem;
-}
-
-.size-3 {
-    width: 3rem;
-    height: 3rem;
-}
-
-.size-4 {
-    width: 4rem;
-    height: 4rem;
-}
-
-.size-5 {
-    width: 5rem;
-    height: 5rem;
-}
-
-.size-6 {
-    width: 6rem;
-    height: 6rem;
-}
-
-.size-8 {
-    width: 8rem;
-    height: 8rem;
-}
-
-
 .cell {
-    border: grey;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url("img/cells_new2.png");
+    background-repeat: no-repeat;
 }
 
 .cell_closed {
-    background: no-repeat center / contain url("img/closed_cell.png");
+    background-position: 0 0;
 }
 
 .cell_opened {
-    background: no-repeat center / contain url("img/opened_cell.png");
+    background-position: -2.5rem 0;
 }
 
 .cell_1 {
-    background: no-repeat center / contain url("img/one_mines.png");
+    background-position: -5rem 0;
 }
 
 .cell_2 {
-    background: no-repeat center / contain url("img/two_mines.png");
+    background-position: -7.5rem 0;
 }
 
 .cell_3 {
-    background: no-repeat center / contain url("img/three_mines.png");
+    background-position: -10rem 0;
 }
 
 .cell_4 {
-    background: no-repeat center / contain url("img/four_mines.png");
+    background-position: -12.5rem 0;
 }
 
 .cell_5 {
-    background: no-repeat center / contain url("img/five_mines.png");
+    background-position: -15rem 0;
 }
 
 .cell_6 {
-    background: no-repeat center / contain url("img/six_mines.png");
+    background-position: -17.5rem 0;
 }
 
 .cell_7 {
-    background: no-repeat center / contain url("img/seven_mines.png");
+    background-position: -20rem 0;
 }
 
 .cell_8 {
-    background: no-repeat center / contain url("img/eight_mines.png");
-}
-
-.flag {
-    background: no-repeat center / contain url("img/flag.png");
+    background-position: -22.5rem 0;
 }
 
 .question {
-    background: no-repeat center / contain url("img/question.png");
+    background-position: -25rem 0;
+}
+
+.flag {
+    background-position: -27.5rem 0;
+}
+
+.cell_green {
+    background-position: -30rem 0;
 }
 
 .mine {
-    background: no-repeat center / contain url("img/mine.png");
-}
-
-.mine_detonated {
-    background: no-repeat center / contain url("img/detonated_mine.png");
+    background-position: -32.5rem 0;
 }
 
 .mine_error {
-    background: no-repeat center / contain url("img/error_mine.png");
+    background-position: -35rem 0;
+}
+
+.mine_detonated {
+    background-position: -37.5rem 0;
 }
 
 
 .conditions {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
 }
 
-.size, .level {
+.level {
     display: flex;
     flex-direction: column;
     font-size: 1.8rem;
     align-items: flex-start;
 }
 
+.own {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    align-items: flex-start;
+    padding-left: 3rem;
+}
+
+.own-level {
+    margin-bottom: 0.7rem;
+}
+
+.own-btn {
+    padding: 0.5rem;
+    width: 8rem;
+    border-radius: 3rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    box-shadow: 1px 1px;
+    background-color: lightgrey;
+    transition: all 0.5s;
+}
+
+.own-btn:hover {
+    transform: translateY(0.3rem);
+}
+
 .type-click {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    width: 100%;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-around;
+    padding: 1rem;
+    max-width: 100%;
+    min-width: 16rem;
 }
 
-.type {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 0.5rem;
+.btn-flag {
+    width: 4rem;
+    height: 3rem;
+    background-image: url("img/flags.png");
+    background-repeat: no-repeat;
 }
 
-.toggle-type {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+.flag-one {
+    background-position: 0 0;
+}
+
+.flag-one-press {
+    background-position: -4rem 0;
+}
+
+.flag-set {
+    background-position: -8rem 0;
+}
+
+.flag-set-press {
+    background-position: -12rem 0;
 }
 
 .flag_green {
@@ -257,22 +278,30 @@ h1 {
     display: none;
 }
 
-.text-2 {
+.hint {
+    padding: 1rem;
+    border-radius: 3rem;
     font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-}
-
-.text-3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.75rem;
-}
-
-.text-4 {
-    font-size: 2rem;
     margin-bottom: 1rem;
+    box-shadow: 1px 1px;
+    background-color: lightgrey;
+    transition: all 0.5s;
 }
 
-.line {
-    width: 3rem;
-    height: 0rem;
+.hint:hover {
+    transform: translateY(0.3rem);
+}
+
+.descr {
+    max-width: 60rem;
+    width:100 vw;
+    padding: 1rem;
+}
+
+.descr__title {
+    font-size: 2rem;
+}
+
+.descr__text {
+    font-size: 1.8rem;
 }

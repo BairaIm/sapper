@@ -18,7 +18,7 @@
                     <div class="digit digit_0 digit-size-2" id="counter-mines-10"></div>
                     <div class="digit digit_0 digit-size-2" id="counter-mines-1"></div>
                 </div>
-                <button class="smile size-4 cell"></button>
+                <button class="smile smile_base"></button>
                 <div class="timer">
                     <div class="digit digit_0 digit-size-2" id="timer-100"></div>
                     <div class="digit digit_0 digit-size-2" id="timer-10"></div>
@@ -26,38 +26,13 @@
                 </div>
             </div>
             <div class="type-click hidden">
-                <p class="text-2">Выберите действие при нажатии:</p>
-                <div class="type">
-                    <div>
-                        <input type="radio" id="open-cell" name="type-click" value="cell" checked>
-                        <label class="text-2" for="open-cell">Открыть ячейку</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="flag" name="type-click" value="flag">
-                        <label class="text-2" for="flag">Установить флаг</label>
-                    </div>
-                    <button class="flag toggle-type size-3 cell"></button>
-                </div>
+                <button class="flag-set btn-flag"></button>
+                <button class="flag-one btn-flag"></button>
             </div>
             <div class="field"></div>
         </div>
 
         <div class="conditions">
-            <fieldset class="size">
-                <legend>Выберите размер ячеек</legend>
-                    <div>
-                        <input type="radio" id="small" name="size_cell" value="2" checked>
-                        <label for="small">маленький</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="middle" name="size_cell" value="3">
-                        <label for="middle">средний</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="big" name="size_cell" value="4">
-                        <label for="big">большой</label>
-                    </div>
-            </fieldset>
             <fieldset class="level">
                 <legend>Выберите уровень</legend>
                     <div>
@@ -72,11 +47,39 @@
                         <input type="radio" id="prof" name="level" value="3" checked>
                         <label for="prof">профессионал</label>
                     </div>
+                    <div>
+                        <input type="radio" id="own" name="level" value="4">
+                        <label for="own">свой</label>
+                        <div class="own hidden">
+                            width: <input type="number" min="1" max="50" class="own-level" id="width" placeholder="width">
+                            height: <input type="number" min="1" max="50" class="own-level" id="height" placeholder="height">
+                            bombs: <input type="number" min="1" max="1000" class="own-level" id="bombs" placeholder="cnt_bombs">
+                            <button class="own-btn">Start</button>
+                        </div>
+                    </div>
             </fieldset>
+            <button class="hint hidden">У вас 3 подсказки</button>
+        </div>
+        <div class="descr">
+            <h2 class="descr__title">Описание</h2>
+            <p class="descr__text">
+                При нажатии на ячейку, будет показано число мин вокруг открытой ячейку, Ваша задача открыть все ячейки без мин. Флажком отмечайте поля где с миной, ячейки с флажком не будут открываться.<br>
+                <br>
+                Органы управления (компьютерная версия / мобильная версия):
+            
+                <br>- нажатие левой кнопки мыши по ячейке / нажатие на ячейку - открыть ячейку;
+                <br>- нажатие правой кнопки мыши по ячейке / нажать на кнопку с одним флажком (для установки одного флажка) или на кнопку с двумя флажками (для установки множества флажков) и затем нажать на ячейку - установить флажок (обозначить место мины и исключить случайное открытие ячейки);
+                <br>- двойное нажатие левой кнопки мыши по ячейке, нажатие колесом мыши / двойное нажатием на ячейку - открывает все ячейки вокруг (действует только для открытых ячеек, с количеством флажком вокруг, соответствующем числу на ячейке).
+                <br>
+                <br>Конец игры:
+                <br>- Победа (смайлик в очках) - открыты все ячейки не содержащие мины;
+                <br>- Поражение (грустный смайлик) - открыта мина;
+                <br>
+                <br>Для запуска новой игры нажмите на смайлик.
+            </p>
         </div>
     </div>
     
-
     <script src="app.js"></script>
 </body>
 </html>
