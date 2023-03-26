@@ -153,7 +153,6 @@ function getHint() {
             : hintBtn.innerHTML = 'У вас 2 подсказки';
     }
     
-    console.log(closedCellsWithoutMine);
     const res = Math.floor(Math.random() * (closedCellsWithoutMine.length - 1));
     const cell = closedCellsWithoutMine[res];
     
