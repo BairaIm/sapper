@@ -166,13 +166,24 @@ function getHint() {
 
 function installationMines(countInstallMines) {
     let cnt = 0;
-    
+    let withoutMines = [];
+
+    if (bombs) {
+        for (let i = 0; i < cells.length; i++) {
+            if (!bombs.includes(i) && cells[i].dataset.isOpen == 0) {
+                withoutMines.push(i);
+            }
+        }
+    } else {
+        withoutMines = cells.keys();
+    }
+
     while (cnt < countInstallMines) {
-        const index = Math.floor(Math.random() * (closeCount - 1));
-        if (!bombs.includes(index) && cells[index].dataset.isOpen == 0) {
-            bombs. push(index);
+        const index = Math.floor(Math.random() * withoutMines.length);
+        if (!bombs.includes(withoutMines[index])) {
+            bombs.push(withoutMines[index]);
             cnt++;
-        } 
+        }
     }
 }
 
@@ -262,7 +273,7 @@ function handleStart() {
 }
 
 function isValidNumber(num) {
-    return !isNaN(num) || num > 0;
+    return !isNaN(num) && num > 0;
 }
 
 function handleMoveNext(event) {
