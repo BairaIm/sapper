@@ -18,8 +18,8 @@ document.querySelectorAll('input[name="level"]').forEach(radioBtn =>
             radioBtn.addEventListener('change', 
             () => {
                 if (radioBtn.value == 1) {
-                    WIDTH = 8;
-                    HEIGHT = 8;
+                    WIDTH = 9;
+                    HEIGHT = 9;
                     BOMBS_COUNT = 10;
 
                     hintBtn.addEventListener('click', getHint);
@@ -31,9 +31,9 @@ document.querySelectorAll('input[name="level"]').forEach(radioBtn =>
 
                     startGame();
                 } else if (radioBtn.value == 2) {
-                    WIDTH = 12;
-                    HEIGHT = 12;
-                    BOMBS_COUNT = 20;
+                    WIDTH = 16;
+                    HEIGHT = 16;
+                    BOMBS_COUNT = 40;
 
                     hintBtn.removeEventListener('click', getHint);
                     hintBtn.classList.add('hidden');
@@ -43,9 +43,9 @@ document.querySelectorAll('input[name="level"]').forEach(radioBtn =>
 
                     startGame();
                 } else if (radioBtn.value == 3) {
-                    WIDTH = 16;
+                    WIDTH = 30;
                     HEIGHT = 16;
-                    BOMBS_COUNT = 40;
+                    BOMBS_COUNT = 99;
 
                     hintBtn.removeEventListener('click', getHint);
                     hintBtn.classList.add('hidden');
@@ -97,6 +97,8 @@ let typeClick = "cell";
 
 const toggleTypeOne = document.querySelector('.flag-one');
 const toggleTypeSet = document.querySelector('.flag-set');
+const toogleTypeCell = document.querySelector('.flag-cell-press');
+const typeClickDiv = document.querySelector('.type-btn');
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i
         .test(navigator.userAgent)) {
@@ -104,6 +106,10 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 
     toggleTypeSet.addEventListener('click', toggleType);
     toggleTypeOne.addEventListener('click', toggleTypeOneTime);
+    toogleTypeCell.addEventListener('click', resetType);
+
+    window.visualViewport.addEventListener('resize', handleView);
+    window.visualViewport.addEventListener('scroll', handleView);
 }
 
 const texts = document.querySelectorAll('.text-2');
@@ -189,18 +195,21 @@ function installationMines(countInstallMines) {
 
 function toggleTypeOneTime() {
     toggleTypeSet.classList.replace('flag-set-press', 'flag-set');
+    toogleTypeCell.classList.replace('flag-cell-press', 'flag-cell');
 
     if (typeClick != 'flag') {
         toggleTypeOne.classList.replace('flag-one', 'flag-one-press');
         typeClick = 'flag';
     } else {
         toggleTypeOne.classList.replace('flag-one-press', 'flag-one');
+        toogleTypeCell.classList.replace('flag-cell', 'flag-cell-press');
         typeClick = 'cell';
     }
 }
 
 function toggleType() {
     toggleTypeOne.classList.replace('flag-one-press', 'flag-one');
+    toogleTypeCell.classList.replace('flag-cell-press', 'flag-cell');
 
     if (typeClick != 'flags') {
         typeClick = 'flags';
@@ -208,6 +217,7 @@ function toggleType() {
     } else {
         typeClick = 'cell';
         toggleTypeSet.classList.replace('flag-set-press', 'flag-set');
+        toogleTypeCell.classList.replace('flag-cell', 'flag-cell-press');
     }
 };
 
@@ -215,6 +225,7 @@ function resetType() {
     typeClick = 'cell';
     toggleTypeSet.classList.replace('flag-set-press', 'flag-set');
     toggleTypeOne.classList.replace('flag-one-press', 'flag-one');
+    toogleTypeCell.classList.replace('flag-cell', 'flag-cell-press');
 }
 
 function toggleFlag(index) {
@@ -282,6 +293,26 @@ function handleMoveNext(event) {
     }
 }
 
+function handleView(event) {
+    const top = window.visualViewport.pageTop;
+    const left = window.visualViewport.pageTop;
+
+    if (top > 60 && top < HEIGHT * 25 + 55 || window.visualViewport.width < WIDTH * 25) {
+        typeClickDiv.classList.add('sticky');
+        if (top > 60) {
+            typeClickDiv.style.top = `${window.visualViewport.offsetTop}px`;
+        }
+        
+        typeClickDiv.style.left = `${window.visualViewport.pageLeft}px`;
+        typeClickDiv.style.width = `${window.visualViewport.width}px`;
+    } else {
+        typeClickDiv.classList.remove('sticky');
+        typeClickDiv.style.width = '100%';
+    }
+
+    console.log(window.visualViewport.width, WIDTH * 25)
+}
+
 function handleButton(event) {
     const index = cells.indexOf(event.target);
     const cell = cells[index];
@@ -323,6 +354,7 @@ function handleClick(event) {
         }
         typeClick = 'cell';
         toggleTypeOne.classList.replace('flag-one-press', 'flag-one');
+        toogleTypeCell.classList.replace('flag-cell', 'flag-cell-press');
     }
 }
 

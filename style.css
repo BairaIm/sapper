@@ -20,7 +20,6 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
-    overflow: hidden;
 }
 
 .game {
@@ -233,46 +232,51 @@ h1 {
 }
 
 .type-click {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    justify-content: space-around;
-    padding: 1rem;
+    padding: 0.5rem;
     max-width: 100%;
     min-width: 16rem;
+    height: 4.5rem;
+}
+
+.type-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 100%;
 }
 
 .btn-flag {
-    width: 4rem;
-    height: 3rem;
+    width: 4.5rem;
+    height: 3.5rem;
     background-image: url("img/flags.png");
     background-repeat: no-repeat;
 }
 
-.flag-one {
+.flag-cell {
     background-position: 0 0;
 }
 
+.flag-cell-press {
+    background-position: -4.5rem 0;
+}
+
+.flag-one {
+    background-position: -9rem 0;
+}
+
 .flag-one-press {
-    background-position: -4rem 0;
+    background-position: -13.5rem 0;
 }
 
 .flag-set {
-    background-position: -8rem 0;
+    background-position: -18rem 0;
 }
 
 .flag-set-press {
-    background-position: -12rem 0;
+    background-position: -22.5rem 0;
 }
-
-.flag_green {
-    background: green;
-}
-
-.flag_grey {
-    background: darkgrey;
-}
-
 
 .hidden {
     display: none;
@@ -293,8 +297,8 @@ h1 {
 }
 
 .descr {
-    max-width: 60rem;
-    width:100 vw;
+    max-width: 98%;
+    width: 80rem;
     padding: 1rem;
 }
 
@@ -304,4 +308,11 @@ h1 {
 
 .descr__text {
     font-size: 1.8rem;
+}
+
+.sticky {
+    text-align: center;
+    background: lightgrey;
+    border: 1px solid darkgrey;
+    position: fixed;
 }
